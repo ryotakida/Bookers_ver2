@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <li class="header-title">
+            <a href="/">Bookers</a>
+          </li>          
+          <% if user_signed_in? %>
+          <ul>
+            <li>
+              <%= link_to "Home", user_registration_path(@user) %>
+            </li>
+            <li>
+              <%= link_to "Users", user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Books", user_registration_path %><!---usersと同じにしてるまだできてない-->
+            </li>
+            <li>
+              <%= link_to "logaut", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+         <% else %>
+              <%= link_to "Home", root_path %>
+            </li>
+            <li>
+              Aboutまだできてない
+            </li>
+            <li>
+              <%= link_to "sign up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "login", new_user_session_path %>
+            </li>
+          </ul>          
+
+         <% end %>
+        </div>
+      </nav>
+    </header>     
+    <%= yield %>
+  </body>
+</html>
