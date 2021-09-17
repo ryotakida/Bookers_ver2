@@ -11,45 +11,54 @@
 
   <body>
     <header>
-      <nav>
+      <nav class="navi">
         <div class="container">
-         <div class="header-title">
-            <a href="/">Bookers</a>
-         </div>          
+          <a class="navi-title"href="/">Bookers</a>
          <% if user_signed_in? %>
-          <ul>
+          <ul class="navi-ul ml-auto">
             <li>
-              <%= link_to "Home", user_path(current_user) %><!--user_path(@user.id)--->
+              <%= link_to "Home", user_path(current_user),class:"link fas fa-home" %><!--user_path(@user.id)--->
             </li>
             <li>
-              <%= link_to "Users", users_path %>
+              <%= link_to "Users", users_path,class:"link" %>
             </li>
             <li>
-              <%= link_to "Books", books_path %>
+              <%= link_to "Books", books_path,class:"link" %>
             </li>
             <li>
-              <%= link_to "logaut", destroy_user_session_path, method: :delete %>
+              <%= link_to "logaut", destroy_user_session_path,class:"link", method: :delete %>
             </li>
           </ul>
          <% else %>
-          <ul>
+          <ul class="navi-ul ml-auto">
             <li>
-              <a href="/">Home</a>
+              <%= link_to "Home", root_path,class:"link" %>
             </li>
             <li>
-              Aboutまだできてない
+              <%= link_to "About", about_path, class:"link" %>
             </li>
             <li>
-              <%= link_to "sign up", new_user_registration_path %>
+              <%= link_to "sign up", new_user_registration_path, class:"link" %>
             </li>
             <li>
-              <%= link_to "login", new_user_session_path %>
+              <%= link_to "login", new_user_session_path,class:"link" %>
             </li>
           </ul>
          <% end %>
         </div>
       </nav>
     </header>     
-   <%= yield %>
+    <div class="container content">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="last">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

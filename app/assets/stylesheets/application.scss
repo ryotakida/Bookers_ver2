@@ -14,3 +14,35 @@
  *= require_self
  */
 @import "bootstrap";
+
+*{
+    box-sizing:boder-box;
+    
+}
+
+.navi-title, .navi-li{
+    color: #fff;
+}
+.container{
+    display:flex;
+    align-items:center;
+    width:100%;
+    margin:0 auto;
+}
+.navi{
+    background-color:#212529;
+}
+.link {
+     
+    padding:0 10px;
+    color: white ; 
+    display: inline-block;
+
+    
+}
+.navi-ul{
+    display:flex;
+
+    list-style: none;
+
+}
