@@ -13,35 +13,51 @@
     <header>
       <nav class="navi">
         <div class="container">
-          <a class="navi-title"href="/">Bookers</a>
+          <a class="navi-title"href="/"><span>Bookers</span></a>
          <% if user_signed_in? %>
           <ul class="navi-ul ml-auto">
             <li>
-              <%= link_to "Home", user_path(current_user),class:"link fas fa-home" %><!--user_path(@user.id)--->
+              <%= link_to user_path(current_user),class:" link" do %><!--user_path(@user.id)--->
+              <i class="fas fa-home">Home</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "Users", users_path,class:"link" %>
+              <%= link_to users_path,class:"link" do %>
+              <i class="fas fa-users">Users</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "Books", books_path,class:"link" %>
+              <%= link_to books_path,class:"link " do %>
+              <i class="fas fa-book-open">Books</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "logaut", destroy_user_session_path,class:"link", method: :delete %>
+              <%= link_to destroy_user_session_path,class:"link ", method: :delete  do%>
+              <i class="fas fa-sign-out-alt"></i>
+              <% end %>
             </li>
           </ul>
          <% else %>
           <ul class="navi-ul ml-auto">
             <li>
-              <%= link_to "Home", root_path,class:"link" %>
+              <%= link_to root_path,class:"link" do %>
+              <i class="fas fa-home"> Home</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "About", about_path, class:"link" %>
+              <%= link_to about_path, class:"link" do %>
+              <i class="fas fa-link">About</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "sign up", new_user_registration_path, class:"link" %>
+              <%= link_to new_user_registration_path, class:"link" do %>
+              <i class="fas fa-user-plus">sign up</i>
+              <% end %>
             </li>
             <li>
-              <%= link_to "login", new_user_session_path,class:"link" %>
+              <%= link_to new_user_session_path,class:"link" do %>
+              <i class="fas fa-sign-in-alt">login</i>
+              <% end %>
             </li>
           </ul>
          <% end %>
@@ -54,7 +70,7 @@
     <div class="footer">
       <div class="container mt-5">
         <div class="row">
-          <div class="mx-">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>

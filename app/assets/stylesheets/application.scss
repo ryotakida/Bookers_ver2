@@ -15,6 +15,7 @@
  */
 @import "bootstrap";
 
+
 *{
     box-sizing:boder-box;
     margin:0;
@@ -33,12 +34,15 @@ body{
 .navi{
     background-color:#212529;
     position:relative;
-    align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
 }
 
-.navi-title, .navi-li{
+.navi-title,{
     color: #fff;
+    font-size:1.25rem;
+    text-decoration: none;
+    background-color: transparent;
+
 }
 .container{
     justify-content: space-between;
@@ -48,12 +52,13 @@ body{
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-
+    align-items: center;
+    
 }
 
 .link {
     padding:0 10px;
-    color: white ; 
+    color: #fff; 
     display: inline-block;
     height:100%;
 }
@@ -68,4 +73,9 @@ body{
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+}
+.fas {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    line-height: normal;
 }
