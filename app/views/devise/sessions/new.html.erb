@@ -1,6 +1,14 @@
 <h2>Log in</h2>
 
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+   <% if @user.errors.any? %>
+    <h3 class="text-danger"><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>

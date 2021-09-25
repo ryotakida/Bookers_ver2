@@ -44,13 +44,13 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class:"link fas fa-link nav-link text-light" do %>
+                  <%= link_to home_about_path, class:"link fas fa-link nav-link text-light" do %>
                   About
                   <% end %>
                 </li>
                 <li>
                   <%= link_to new_user_registration_path, class:"link fas fa-user-plus nav-link text-light" do %>
-                  sign up
+                  Sign Up
                   <% end %>
                 </li>
                 <li>
@@ -64,7 +64,9 @@
         </div>
       </nav>
     </header>     
-
+      <p id="flash">
+        <%= flash[:notice] %>
+      </p>
    <%= yield %>    
     <footer>
       <div class="container mt-5">
@@ -75,6 +77,5 @@
         </div>
       </div>
     </footer>
-
   </body>
 </html>

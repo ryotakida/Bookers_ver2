@@ -2,7 +2,7 @@
   <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
-        <%= render "user_info" %>
+        <%= render "user_info", book: @book %>
       </div>
       <div class="col-md-8 offset-md-1">
         <h2>Users</h2>
@@ -17,7 +17,7 @@
           <% @users.each do |user| %>
             <tbody>
               <tr>
-                <th><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "40x40" %></th>
+                <th><%= attachment_image_tag user, :profile_image,format:'jpeg',fallback:"no_image.jpg", size:"40x40" %></th>
                 <th><%= user.name %></th>
                 <th><%= link_to "show", user_path(user) %></th>
               </tr>

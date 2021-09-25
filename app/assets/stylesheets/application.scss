@@ -65,3 +65,14 @@ a:link, a:visited, a:hover, a:active{
     margin-right: -15px;
     margin-left: -15px;
 }
+#flash {
+  background-color: white;
+  color: #008000;
+  text-align: left;
+}
+
+#alert, #error_explanation {
+  background-color: white;
+  color: #FF0000;
+  text-align: left;
+}
