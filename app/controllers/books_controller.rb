@@ -19,7 +19,7 @@ class BooksController < ApplicationController
     if current_user == @book.user
       render :edit
     else
-      redirect_to root_path
+      redirect_to books_path
     end  
   end
   
@@ -36,7 +36,6 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     @user = @book.user
-    
   end
 
   def show
