@@ -24,10 +24,19 @@
                     <% if user_signed_in? && current_user.id == @book.user_id %>  
                       <td><%= link_to "Edit", edit_book_path(@book),class:"btn btn-success" %></td>
                       <td><%= link_to "Destroy", book_path(@book), method: :delete , class:"btn btn-danger" %></td>   
+                    <% else %>
+                      <td></td>                    
+                      <td>コメント数:<%= book.books_comments.count %></td>
                     <% end %>
                   </tr>
               </tbody>
             </table>
+            <div>
+              <%= form_with(model:[@book, @books_comment], local: true) do |f| %>
+                <%= f.text_area :comment, rows:'5',autofocus: true, class: "form-control" %>
+                <%= f.submit "送信" %>
+              <% end %> 
+            </div>            
           </div>
         </div>
     </div>
