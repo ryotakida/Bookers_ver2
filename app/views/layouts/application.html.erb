@@ -65,17 +65,14 @@
       </nav>
     </header> 
     <div>
-    <% if user_signed_in? %>  
-      <%= form_with url: search_path, method: :get, local: :true do |f| %>
-            <%= f.text_field :word %>      
-            <%= f.select :range, options_for_select([['User'], ['Book']]) %>
-            <%= f.select :search, options_for_select([["完全一致","perfect_match"],['前方一致', 'forword_match'], ['後方一致', 'backword_match'], ["部分一致","partial_match"]]) %>
-            <%= f.submit "検索" %>
-      <% end %>    
-      <p id="flash">
-        <%= flash[:notice] %>
-      </p>
-    <% end %>  
+    <% if user_signed_in? %>
+      <%= form_with url:search_path, method: :get, local: true do |f| %>
+        <%= f.text_field 'search[value]' %>
+        <%= f.select 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>
+        <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= f.submit :"検索" %>
+      <% end %>
+    <% end %> 
     </div>  
    <%= yield %>    
     <footer>

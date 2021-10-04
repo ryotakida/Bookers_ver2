@@ -1,56 +1,55 @@
-<% if @range == 'User' %>
-      <h2>Users search for #{word}</h2>
 
-      <table class="table">
-
-          <thead>
+  <div>
+    <% if @model == "user" %>
+    <h2>Users search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
             <tr>
-                <th>image</th>
-                <th>name</th>
+                <th></th>
+                <th>Name</th>
+                <th>Introduction</th>
             </tr>
-          </thead>
-
-          <tbody>
-
+        </thead>
+    <% @datas.each do |user| %>
+        <tbody>
             <tr>
-            <% @user.each do |user| %>    
-                <td>
-                 <%= attachment_image_tag user, :profile_image,fallback:"no_image.jpg", format: 'jpeg', size: "40x40" %>
-              </td>
-              <td><%= user.name %></td>
-              <td><%= link_to 'show', user_path(user) %></td>
-            <% end %>              
+                <th>
+                    <%= attachment_image_tag(user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
+                </th>
+                <th>
+                    <%= link_to user_path(user) %><%= user.name %><% end %>
+                </th>
+                <th>
+                    <%= user.introduction %>
+                </th>
             </tr>
-          </tbody>
-
-      </table>
-
-<% else %>
-
-       <h2>Books search for #{word}</h2>
-
-       <table class="table">
-
-         <thead>
+        </tbody>
+    <% end %>
+    <% elsif @model == "book" %>
+    <h2>Books search for '<%= @value %>'</h2>
+    <table class="table">
+        <thead>
             <tr>
                 <th></th>
                 <th>Title</th>
                 <th>Opinion</th>
             </tr>
-         </thead>
-
-          <tbody>
-            <% @book.each do |book| %>
+        </thead>
+        <% @datas.each do |book| %>
+        <tbody>
             <tr>
-              <td>
-                <%= attachment_image_tag book.user, :profile_image,fallback:"no_image.jpg", format: 'jpeg', size: "40x40" %>
-              </td>
-              <td><%= link_to book_path(book) , book.user.title %></td>
-              <td><%= book.user.body %></td>
+                <th>
+                    <%= attachment_image_tag(book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
+                </th>
+                <th>
+                    <%= link_to book_path(book) do %><%= book.title %><% end %>
+                </th>
+                <th>
+                    <%= book.body %>
+                </th>
             </tr>
-            <% end %>
-          </tbody>
-
-       </table>
-
-<% end %>            
+        </tbody>
+        <% end %>
+    <% end %>
+    </table>
+  </div>
