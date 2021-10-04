@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get "/search" => 'searches#search'
   get 'relationships/create'
   get 'relationships/destroy'
   devise_for :users
