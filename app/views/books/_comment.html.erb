@@ -1,0 +1,17 @@
+<table>  
+  <tbody>
+    <% book.books_comments.each do |books_comment| %>
+    <tr>
+        <td><%= attachment_image_tag book.user, :profile_image,format:'jpeg',fallback:"no_image.jpg", size:"40x40" %></br>
+        <%= link_to user_path(book.user) do %>
+        <%= book.user.name %>
+        <% end %>                  
+        </td>
+        <td><%= books_comment.comment %></td>
+        <% if current_user == books_comment.user %>
+        <td><%= link_to "Destroy", book_books_comment_path(books_comment.book,books_comment), method: :delete , class:"js-delete-comment-button btn btn-danger", remote: true  %></td>
+        <% end %>
+    </tr>
+    <% end %> 
+  </tbody>    
+</table>    
