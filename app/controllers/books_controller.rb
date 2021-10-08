@@ -37,6 +37,8 @@ class BooksController < ApplicationController
     @book = Book.new
     @user = @book.user
     @books_comments = BooksComment.all
+    @books = Book.includes(:favorite_users).sort {|a,b| b.favorite_users.size <=> a.favorite_users.size}
+
   end
 
   def show
